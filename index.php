@@ -42,7 +42,7 @@
                     <a href="functions/usuario/sair.php">Sair</a>
                 </p>
                 <p class="botao branco">
-                    <a href="">
+                    <a href="./index.php?pg=usuario">
                     <?php
                         if(isset($_SESSION['id']) and !empty($_SESSION['id'])){
                             $query = "SELECT nome FROM usuarios WHERE id = ". $_SESSION['id'];
@@ -55,6 +55,29 @@
                         <i class="bi bi-person-circle"></i>
                     </a>
                 </p>
+            </div>
+
+            <div class="icone_menu" id="icone_menu">
+                <i class="bi bi-list"></i>
+            </div>
+            <div class="sidebar hidden" id="sidebar">
+                <ul>
+                    <li class="icone_fechar" id="icone_fechar"><i class="bi bi-arrow-right"></i></li>
+                    <li>Ofertas <i class="bi bi-stopwatch-fill"></i></li>
+                    <li>Consultar <i class="bi bi-search"></i></li>
+                    <li>Listagem <i class="bi bi-ticket-fill"></i></li>
+                    <li class="sidebar-conta">
+                        <i class="bi bi-person-circle"></i>
+                        <?php
+                            if(isset($_SESSION['id']) and !empty($_SESSION['id'])){
+                                echo '<p class="botao branco">'.$row['nome'].'</p>';
+                            }
+                        ?>
+                        <p>
+                    <a href="functions/usuario/sair.php">Sair</a>
+                </p>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>

@@ -19,9 +19,9 @@
             $res = $bd->prepare($query);
             $res->execute($valores);
 
-            } catch (PDOException $er){
-                echo 'Erro: '.$er->getMessage();
-            }
+        } catch (PDOException $er){
+            echo 'Erro: '.$er->getMessage();
+        }
     } 
     
     header('Location: ../../admin/index.php');

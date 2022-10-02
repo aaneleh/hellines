@@ -26,7 +26,6 @@
         <div class="conteudo">
 
             <?php
-            
                 $query = "SELECT * FROM voos ORDER BY atual_passageiros DESC LIMIT 0,6";
                 $res = $bd->prepare($query);
                 $res->execute();
@@ -49,7 +48,7 @@
                             <p>'.$row['destino'].'</p>
                         </div>
                         <div>
-                            <a href="/acoes/comprar.php?id='.$row['id'].'" class="botao azul">
+                            <a href="functions/usuario/comprar.php?id='.$row['id'].'" class="botao azul">
                                 Comprar
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -65,16 +64,23 @@
     <section class="consultar" id="consultar">
         <h2>Consultar</h2>
         <div class="conteudo">
-            <form action="" method="get">
+            <form action="./index.php" method="get">
+                <input type="hidden" name="pg" value="resultados">
                 <div>
                     <p>Origem</p>
                     <input class="input branco" list="origens" name="origem">
 
                     <datalist id="origens">
-                        <option value="Porto Alegre">
-                        <option value="Rio de Janeiro">
-                        <option value="São Paulo">
-                        <option value="Salvador">
+                        <?php
+                            $query = "SELECT origem FROM voos GROUP BY origem";
+                            $res = $bd->prepare($query);
+                            $res->execute();
+                            while($row = $res->fetch()){
+                                echo '
+                                <option value="'.$row['origem'].'">
+                                ';
+                            }
+                        ?>
                     </datalist>
                 </div>
                 <div>
@@ -82,13 +88,19 @@
                     <input class="input branco" list="destinos" name="destino">
 
                     <datalist id="destinos">
-                        <option value="Porto Alegre">
-                        <option value="Rio de Janeiro">
-                        <option value="São Paulo">
-                        <option value="Salvador">
+                        <?php
+                            $query = "SELECT destino FROM voos GROUP BY destino";
+                            $res = $bd->prepare($query);
+                            $res->execute();
+                            while($row = $res->fetch()){
+                                echo '
+                                <option value="'.$row['destino'].'">
+                                ';
+                            }
+                        ?>
                     </datalist>
                 </div>
-                <button class="botao azul"> <!-- adicionar funcao com js para enviar o form -->
+                <button id="buscar-botao" class="botao azul"> <!-- adicionar funcao com js para enviar o form -->
                     Buscar
                     <i class="bi bi-search"></i>
                 </button>
@@ -118,8 +130,8 @@
                             <td>'.$row['destino'].'</td>
                             <td>'.$row['data'].' - '.$row['hora'].'</td>
                             <td>'.$row['atual_passageiros'].'/'.$row['total_passageiros'].'</td>
-                            <td class="botao preto">
-                                <a href="../functions/usuario/comprar?id='.$row['id'].'">
+                            <td>
+                                <a class="botao preto" href="functions/usuario/comprar.php?id='.$row['id'].'">
                                     <i class="bi bi-cart-fill"></i>
                                 </a>
                             </td>
