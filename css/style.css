@@ -61,17 +61,19 @@ a {
   text-decoration: none;
 }
 
-button {
+button, input {
   outline: none;
   border: none;
+  font-size: 1em;
 }
 
-/* CLASSES GERAIS */
+/* GERAIS */
 .botao {
   padding: 0.25em 0.5em;
   cursor: pointer;
   border-radius: 1.5em;
   transition: 0.2s;
+  text-decoration: none;
   transform: scale(1);
 }
 .botao.preto {
@@ -99,21 +101,69 @@ button {
   border: 0.1em solid var(--preto100);
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form div {
+  display: flex;
+  margin: 2em;
+  justify-content: space-between;
+  width: min(25em, 90%);
+  align-items: center;
+}
+form div input {
+  width: 20em;
+}
+
+table {
+  width: min(45em, 95%);
+}
+table tr {
+  height: 2.5em;
+}
+
 /* ESPAÇAMENTO DE SEÇÕES*/
 main, footer {
   margin-top: 8vh;
 }
 
+main {
+  min-height: 63.2vh;
+}
+
 section {
   padding-top: 6vh;
   padding-bottom: 6vh;
+  z-index: 1;
 }
 
-/* COMPONENTS */
+.divisor {
+  position: absolute;
+  z-index: -1;
+  aspect-ratio: 900/200;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/divisor.svg");
+}
+
+.hero {
+  padding-bottom: 4vh;
+}
+
+.ofertas {
+  padding-top: 20vh;
+}
+
+/* HOME */
 .header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   width: 100vw;
   height: 8vh;
   background-color: var(--azul100);
@@ -189,15 +239,6 @@ section {
   flex-direction: column;
   align-items: center;
 }
-.consultar .conteudo div {
-  display: flex;
-  margin: 2em;
-  gap: 2em;
-  align-items: center;
-}
-.consultar .conteudo div input {
-  width: 20em;
-}
 .consultar .conteudo button {
   font-size: 1.12em;
   letter-spacing: 1px;
@@ -210,12 +251,6 @@ section {
   margin: 0 auto;
   border: 0.1em solid var(--preto100);
   width: min(45em, 95%);
-}
-.todas .conteudo table {
-  width: min(45em, 95%);
-}
-.todas .conteudo table tr {
-  height: 2.5em;
 }
 .todas .conteudo .botao {
   padding: 0.2em 0.2em;
@@ -243,4 +278,13 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+
+/* LOGIN */
+.login, .logon {
+  margin-top: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */
