@@ -29,10 +29,10 @@
         </div>
         <div class="links_desktop">
             <p>
-                <a href="#ofertas">Novo voo</a>
+                <a href="./index.php?pg=novo-voo">Novo voo</a>
             </p>
             <p>
-                <a href="#consultar">Novo admin</a>
+                <a href="./index.php?pg=novo-admin">Novo admin</a>
             </p>
         </div>
         <div class="conta">
@@ -64,7 +64,13 @@
             $row = $res->fetch();
 
             if($row['admin'] == 1) {
-                require_once('home.php');
+
+                if(isset($_GET['pg']) and !empty($_GET['pg'])) {
+                    require_once($_GET['pg'].'.php');
+
+                } else {
+                    require_once('home.php');
+                }
             } else {
                 header('Location: ../index.php');
                 exit();
@@ -99,13 +105,13 @@
 
         <div>
             <p>
-                <a href="#ofertas">Ofertas</a>
+                <a href="../index.php#ofertas">Ofertas</a>
             </p>
             <p>
-                <a href="#consultar">Consultar</a>
+                <a href="../index.php#consultar">Consultar</a>
             </p>
             <p>
-                <a href="#todas">Todas as Passagens</a>
+                <a href="../index.php#todas">Todas as Passagens</a>
             </p>
         </div>
 

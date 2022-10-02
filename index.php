@@ -44,11 +44,13 @@
                 <p class="botao branco">
                     <a href="">
                     <?php
-                        $query = "SELECT nome FROM usuarios WHERE id = ". $_SESSION['id'];
-                        $res = $bd->prepare($query);
-                        $res->execute();
-                        $row = $res->fetch();
-                        echo $row['nome'];
+                        if(isset($_SESSION['id']) and !empty($_SESSION['id'])){
+                            $query = "SELECT nome FROM usuarios WHERE id = ". $_SESSION['id'];
+                            $res = $bd->prepare($query);
+                            $res->execute();
+                            $row = $res->fetch();
+                            echo $row['nome'];
+                        }
                     ?>
                         <i class="bi bi-person-circle"></i>
                     </a>
