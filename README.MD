@@ -15,7 +15,8 @@ Foi utilizado o XAMP para rodar o php, e phpmyadmin para criação do banco de d
 
 ## Funcionalidades
 
-- Login e Logon e Verificação de SESSION
+- Login e Logon
+- Verificação de SESSION
 - Exibição de voos salvos no banco de dados
 - Busca de voos
 - Adição, edição e exclusão de voos
