@@ -17,6 +17,7 @@ Foi utilizado o XAMP para rodar o php, e phpmyadmin para criação do banco de d
 
 - Login e Logon e Verificação de SESSION
 - Exibição de voos salvos no banco de dados
+- Busca de voos
 - Adição, edição e exclusão de voos
 - "Compra de voos" atribindo seu id ao id do usuário
 
