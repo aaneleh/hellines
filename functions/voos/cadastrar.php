@@ -15,7 +15,7 @@
     if(!empty($_POST['origem']) and !empty($_POST['destino']) and !empty($_POST['data']) and !empty($_POST['total_passageiros'])){
 
         try {
-            $query = "INSERT INTO voos (origem, destino, data, hora, atual_passageiros, total_passageiros) VALUES (:origem, :destino, :data, :atual_passageiros, :total_passageiros)";
+            $query = "INSERT INTO voos (origem, destino, data, hora, atual_passageiros, total_passageiros) VALUES (:origem, :destino, :data, :hora, :atual_passageiros, :total_passageiros)";
             $res = $bd->prepare($query);
             $res->execute($valores);
 
