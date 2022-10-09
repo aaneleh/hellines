@@ -17,10 +17,19 @@
         <div class="conteudo">
 
             <?php
-                $origem = empty($_GET['origem']) ? '' : 'WHERE origem = "'.$_GET['origem'].'"';
-                $destino = empty($_GET['destino']) ? '' : 'WHERE destino = "'.$_GET['destino'].'"';
+                $origem = $_GET['origem'];
+                $destino = $_GET['destino'];
 
-                $query = "SELECT * FROM voos ".$origem." ".$destino;
+                //se tem ambos
+                if(!empty($origem) and !empty($destino)) {
+                    $query = "SELECT * FROM voos WHERE origem = '".$origem."' AND destino = '".$destino."'";
+                //se não tem origem, apenas destino
+                } else if(empty($origem) and !empty($destino)){
+                    $query = "SELECT * FROM voos WHERE destino = '".$destino."'";
+                //se tem origem, e não tem destino
+                } else if(!empty($origem) and empty($destino)){
+                    $query = "SELECT * FROM voos WHERE origem = '".$origem."'";
+                }
                 $res = $bd->prepare($query);
                 $res->execute();
                 if ($res->rowCount() == 0){
