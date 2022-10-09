@@ -30,5 +30,6 @@ Foi utilizado o XAMP para rodar o php, e phpmyadmin para criação do banco de d
 
 ## Demonstração
 
-[![Thumbnail](https://img.youtube.com/vi/7QaQhioXHqk/0.jpg)](https://www.youtube.com/watch?v=7QaQhioXHqk)
+[![Thumbnail](https://img.youtube.com/vi/7QaQhioXHqk/0.jpg)](https://www.youtube.com/watch?v=7QaQhioXHqk)  
+
 [https://www.youtube.com/watch?v=7QaQhioXHqk](https://www.youtube.com/watch?v=7QaQhioXHqk)
